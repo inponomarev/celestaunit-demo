@@ -1,7 +1,7 @@
 #coding=utf-8
 from celestaunit.celestaunit import CelestaUnit, clean_db
-from jugmsk.basic_operations import post_order, get_aggregate_report
-from jugmsk._jugmsk_orm import OrderHeaderCursor
+from secon.basic_operations import post_order, get_aggregate_report
+from secon._jugmsk_orm import OrderHeaderCursor
 
 class test_basic_operations(CelestaUnit):
     
@@ -32,7 +32,6 @@ class test_basic_operations(CelestaUnit):
            ]
        }
 
-    
     def test_document_is_put_to_db(self):
         #Вызываем тестируемую процедуру
         post_order(self.context, test_basic_operations.request1)
@@ -40,8 +39,7 @@ class test_basic_operations(CelestaUnit):
         header = OrderHeaderCursor(self.context)
         header.tryFirst()
         self.assertEquals('no1', header.id)
-        
-    
+
     def test_report_returns_aggregated_qtys(self):
         post_order(self.context, test_basic_operations.request1)
         post_order(self.context, test_basic_operations.request2)

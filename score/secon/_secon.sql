@@ -1,4 +1,4 @@
-CREATE GRAIN jugmsk VERSION '1.0';
+CREATE GRAIN secon VERSION '1.0';
 
 -- *** TABLES ***
 /**Заголовок счёта*/
@@ -7,10 +7,7 @@ CREATE TABLE OrderHeader(
   date DATETIME,
   customer_id VARCHAR(30),
   
-  /**Название клиента 
-   * { caption: asdfasfdsafd
-   * }
-   * */
+  /**Название клиента */
   customer_name VARCHAR(50),
   manager_id VARCHAR(30),
   CONSTRAINT Pk_OrderHeader PRIMARY KEY (id)
@@ -34,7 +31,7 @@ CREATE TABLE test (
 );
 
 -- *** FOREIGN KEYS ***
-ALTER TABLE OrderLine ADD CONSTRAINT fk_OrderLine FOREIGN KEY (order_id) REFERENCES jugmsk.OrderHeader(id);
+ALTER TABLE OrderLine ADD CONSTRAINT fk_OrderLine FOREIGN KEY (order_id) REFERENCES OrderHeader(id);
 -- *** INDICES ***
 
 -- *** VIEWS ***

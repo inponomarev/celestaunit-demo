@@ -6,7 +6,6 @@ def post_order(context, doc):
     header = OrderHeaderCursor(context)
     line = OrderLineCursor(context)
     header.id = doc['id']
-    
     header.date = datetime.datetime.strptime(doc['date'], '%Y-%m-%d')
     header.customer_id = doc['customer_id']
     header.customer_name = doc['customer_name']
